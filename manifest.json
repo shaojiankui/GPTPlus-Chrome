@@ -1,0 +1,42 @@
+{
+
+  "manifest_version": 2,
+  "name": "GPTPlus",
+  "description": "show ChatGPT  Upgrade to Plus  button,and pay with card.",
+  "author": "skyfox",
+  "version": "0.1",
+  "icons": { 
+    "32": "data/images.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "page_action": {
+    "browser_style": true,
+    "default_icon": {
+      "32": "data/images.png"
+    },
+    "default_title" : "GPTPlus",
+    "default_popup": "data/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "run_at": "document_end",
+      "js": ["contentScript.js"]
+    }
+  ],
+ "web_accessible_resources": [
+    "app-070eb5460c2d5ce1.js"
+ ],
+  "permissions": [    
+    "tabs",
+    "activeTab",
+    "notifications",
+    "contextMenus",
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking"
+  ]
+}
